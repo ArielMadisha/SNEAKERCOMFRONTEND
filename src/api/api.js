@@ -10,17 +10,23 @@ API.intercepters.request.use((req) => {
 })
 
 
-// Auth ---
+// Auth ----
 export const loginUser = (data) => API.post('/users/login', data)
-export const signupUser = (data) => API.post('/users/signup', data)
+export const singupUser = (data) => API.post('/users/signup', data)
 
-// Products ---
-export const getProducts =() => API.get('/products')
+// products ----
+export const getProducts = () => API.get('/products')
 export const getProductById = (id) => API.get(`/products/${id}`)
+export const createProduct = (data) => API.post('/products', data)
+export const updateProduct = (data, id) => API.put(`/products/${id}`, data)
+export const deleteProduct = (id) => API.delete(`/products/${id}`)
 
-// Orders ---
+// Orders ----
 export const createOrder = (data) => API.post('/orders', data)
 export const getMyOrders = () => API.get('/orders')
+export const getAllOrders = () => API.get('/orders/all-orders')
+export const updateOrderStatus = (id, status) => API.put(`/orders/status/${id}`, status)
 
-// Reveiws ---
-export const getProductReview = (pid) => API.get(`/review/${id}`)
+// Reviews ----
+export const getProductReview = (pid) => API.get(`/reviews/${pid}`)
+export const createReview = (data) => API.post('/reviews', data)
